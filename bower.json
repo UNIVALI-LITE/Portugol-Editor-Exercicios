@@ -1,8 +1,9 @@
 {
-  "name": "starter",
+  "name": "nittro-webapp",
   "private": true,
   "dependencies": {
-    "Bootflat": "*"
+    "Bootflat": "*",
+    "angular": "~1.2.16"
   },
   "devDependencies": {}
 }
