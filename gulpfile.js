@@ -1,18 +1,10 @@
 'use strict';
 
-var gulp = require('gulp');
+var gulp    = require('gulp');
 var wiredep = require('wiredep').stream;
 
 // Load plugins
 var $ = require('gulp-load-plugins')();
-
-// Scripts
-gulp.task('scripts', function () {
-    return gulp.src('app/scripts/**/*.js')
-        .pipe($.jshint('.jshintrc'))
-        .pipe($.jshint.reporter('default'))
-        .pipe($.size());
-});
 
 // HTML
 gulp.task('html', function () {
@@ -54,7 +46,7 @@ gulp.task('clean', function () {
 });
 
 // Build
-gulp.task('build', ['html', 'scripts', 'images']);
+gulp.task('build', ['html', 'images']);
 
 // Default task
 gulp.task('default', ['clean'], function () {
@@ -96,9 +88,6 @@ gulp.task('watch', ['connect'], function () {
         return gulp.src(event.path)
             .pipe($.connect.reload());
     });
-
-    // Watch .js files
-    gulp.watch('app/scripts/**/*.js', ['scripts']);
 
     // Watch image files
     gulp.watch('app/images/**/*', ['images']);
