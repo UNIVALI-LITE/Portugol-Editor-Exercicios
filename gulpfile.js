@@ -17,9 +17,6 @@ gulp.task('html', function () {
         .pipe($.uglify())
         .pipe(jsFilter.restore())
         .pipe(cssFilter)
-        .pipe($.uncss({
-            html: ['app/index.html']
-        }))
         .pipe($.minifyCss())
         .pipe(cssFilter.restore())
         .pipe($.useref.restore())
