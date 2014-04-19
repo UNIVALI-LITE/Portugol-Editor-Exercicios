@@ -50,6 +50,17 @@ gulp.task('default', ['clean'], function () {
     gulp.start('build');
 });
 
+// Deploy task
+gulp.task('deploy', ['build'], function(){
+    return gulp.src('dist/**/*')     
+        .pipe($.ftp({
+            host: 'nittro.co',
+            user: 'andrei',
+            pass: 'nittro5632',
+            remotePath: '/app_desenv'
+        }));
+});
+
 // Connect
 gulp.task('connect', $.connect.server({
     root: ['app'],

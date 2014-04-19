@@ -3,12 +3,13 @@ Nittro WebApp
 
 Frontend da aplicação web Nittro
 
+![Alt Text](http://www.sheawong.com/wp-content/uploads/2013/08/keephatin.gif)
+
 ## Inclui
 
 * HTML Boilerplate
-* Bootstrap 3.0 (CSS)
-* Bootflat
-* Processo de build utilizando Gulp (Concatena, Minifica, Otimiza Imagens, LiveReload, Remove CSS Não Utilizado,, Auto-prefixa o CSS)
+* Bootflat & Bootstrap 3.0* 
+* Processo de build utilizando Gulp (Concatena, Minifica, Otimiza Imagens, LiveReload, Remove CSS Não Utilizado, Auto-prefixa o CSS, Deploy)
 
 ## Utilização
 
@@ -28,7 +29,7 @@ Pronto
 
 ## Tarefas de build
 
-Observar os arquivos e executar o build ao salvar
+Observar os arquivos e executa o build ao salvar
 `gulp watch`
 
 Build normal
@@ -36,3 +37,6 @@ Build normal
 
 Limpar arquivos do build
 `gulp clean`
+
+Envia pasta \dist para desenv.app.nittro.co
+`gulp deploy`
