@@ -1,13 +1,13 @@
 'use strict';
 
-var gulp    = require('gulp');
-var wiredep = require('wiredep').stream;
+var gulp = require('gulp');
 
 // Load plugins
 var $ = require('gulp-load-plugins')();
 
 // HTML
 gulp.task('html', function () {
+
     var jsFilter = $.filter('**/*.js');
     var cssFilter = $.filter('**/*.css');
 
@@ -50,6 +50,23 @@ gulp.task('default', ['clean'], function () {
     gulp.start('build');
 });
 
+// Connect
+gulp.task('connect', $.connect.server({
+    root: ['app'],
+    port: 9000,
+    livereload: true
+}));
+
+// Watch
+gulp.task('watch', ['connect'], function () {
+    // Watch for changes in `app` folder
+    gulp.watch('app/**/*', function(event) {
+        return gulp.src(event.path)
+            .pipe($.connect.reload());
+    });
+
+});
+
 // Deploy task
 gulp.task('deploy', ['build'], function(){
     return gulp.src('dist/**/*')     
@@ -59,47 +76,4 @@ gulp.task('deploy', ['build'], function(){
             pass: 'nittro5632',
             remotePath: '/app_desenv'
         }));
-});
-
-// Connect
-gulp.task('connect', $.connect.server({
-    root: ['app'],
-    port: 9000,
-    livereload: true
-}));
-
-// Inject Bower components
-gulp.task('wiredep', function () {
-    gulp.src('app/styles/*.scss')
-        .pipe(wiredep({
-            directory: 'app/bower_components',
-            ignorePath: 'app/bower_components/'
-        }))
-        .pipe(gulp.dest('app/styles'));
-
-    gulp.src('app/*.html')
-        .pipe(wiredep({
-            directory: 'app/bower_components',
-            ignorePath: 'app/'
-        }))
-        .pipe(gulp.dest('app'));
-});
-
-// Watch
-gulp.task('watch', ['connect'], function () {
-    // Watch for changes in `app` folder
-    gulp.watch([
-        'app/*.html',
-        'app/scripts/**/*.js',
-        'app/images/**/*'
-    ], function(event) {
-        return gulp.src(event.path)
-            .pipe($.connect.reload());
-    });
-
-    // Watch image files
-    gulp.watch('app/images/**/*', ['images']);
-
-    // Watch bower files
-    gulp.watch('app/bower_components/*', ['wiredep']);
 });
