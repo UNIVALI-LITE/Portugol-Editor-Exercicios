@@ -1,6 +1,6 @@
 {
-  "name": "Nittro-WebApp",
-  "version": "0.0.0",
+  "name": "Portugol-Editor-Exercícios",
+  "version": "0.0.1",
   "dependencies": {},
   "devDependencies": {
     "gulp": "~3.5.0",
@@ -15,8 +15,7 @@
     "gulp-useref": "~0.3.0",
     "gulp-minify-css": "~0.3.0",
     "gulp-uglify": "~0.2.1",
-    "gulp-filter": "~0.3.1",
-    "gulp-ftp": "~0.2.1"
+    "gulp-filter": "~0.3.1"
   },
   "engines": {
     "node": ">=0.10.0"

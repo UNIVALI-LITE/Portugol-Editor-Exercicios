@@ -1,17 +1,12 @@
-Nittro WebApp
-==========
-
-Frontend da aplicação web Nittro
-
-![Alt Text](http://www.sheawong.com/wp-content/uploads/2013/08/keephatin.gif)
+## Editor de Exercícios do Portugol Studio
 
 ## Inclui
 
 * HTML Boilerplate
 * Bootflat & Bootstrap 3.0* 
-* Processo de build utilizando Gulp (Concatena, Minifica, Otimiza Imagens, LiveReload, Remove CSS Não Utilizado, Auto-prefixa o CSS, Deploy)
+* WorkFlow automatizado
 
-## Utilização
+## Instalação
 
 Instale o bower globalmente.
 `npm install -g bower`
@@ -27,7 +22,7 @@ Instale as dependências do bower
 
 Pronto
 
-## Tarefas de build
+## WorkFlow
 
 Observar os arquivos e executa o build ao salvar
 `gulp watch`
@@ -37,6 +32,3 @@ Build normal
 
 Limpar arquivos do build
 `gulp clean`
-
-Envia pasta \dist para desenv.app.nittro.co
-`gulp deploy`

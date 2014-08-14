@@ -66,14 +66,3 @@ gulp.task('watch', ['connect'], function () {
     });
 
 });
-
-// Deploy task
-gulp.task('deploy', ['build'], function(){
-    return gulp.src('dist/**/*')     
-        .pipe($.ftp({
-            host: 'nittro.co',
-            user: 'andrei',
-            pass: 'nittro5632',
-            remotePath: '/app_desenv'
-        }));
-});
