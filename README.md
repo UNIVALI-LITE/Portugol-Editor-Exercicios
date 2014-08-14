@@ -9,26 +9,40 @@
 ## Instalação
 
 Instale o bower globalmente.
-`npm install -g bower`
+```
+npm install -g bower
+```
 
 Instale o gulp globalmente.
-`npm install -g gulp`
+```
+npm install -g gulp
+```
 
 Instale as dependências do projeto localmente
-`npm install`
+```
+npm install
+```
 
 Instale as dependências do bower
-`bower install`
+```
+bower install
+```
 
 Pronto
 
 ## WorkFlow
 
 Observar os arquivos e executa o build ao salvar
-`gulp watch`
+```
+gulp watch
+```
 
 Build normal
-`gulp build`
+```
+gulp build
+```
 
 Limpar arquivos do build
-`gulp clean`
+```
+gulp clean
+```
