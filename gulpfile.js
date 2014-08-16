@@ -8,18 +8,19 @@ var $ = require('gulp-load-plugins')();
 // HTML
 gulp.task('html', function () {
 
-    var jsFilter = $.filter('**/*.js');
+    var jsFilter  = $.filter('**/*.js');
     var cssFilter = $.filter('**/*.css');
+    var assets    = $.useref.assets();
 
     return gulp.src('app/*.html')
-        .pipe($.useref.assets())
+        .pipe(assets)
         .pipe(jsFilter)
         .pipe($.uglify())
         .pipe(jsFilter.restore())
         .pipe(cssFilter)
         .pipe($.minifyCss())
         .pipe(cssFilter.restore())
-        .pipe($.useref.restore())
+        .pipe(assets.restore())
         .pipe($.useref())
         .pipe(gulp.dest('dist'))
         .pipe($.size());
@@ -51,14 +52,16 @@ gulp.task('default', ['clean'], function () {
 });
 
 // Connect
-gulp.task('connect', $.connect.server({
-    root: ['app'],
-    port: 9000,
-    livereload: true
-}));
+gulp.task('server',
+    $.connect.server({
+        root: ['app'],
+        port: 9000,
+        livereload: true
+    })
+);
 
 // Watch
-gulp.task('watch', ['connect'], function () {
+gulp.task('watch', ['server'], function () {
     // Watch for changes in `app` folder
     gulp.watch('app/**/*', function(event) {
         return gulp.src(event.path)

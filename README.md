@@ -3,7 +3,7 @@
 ## Inclui
 
 * HTML Boilerplate
-* Bootflat & Bootstrap 3.0* 
+* Bootflat & Bootstrap 3.0
 * WorkFlow automatizado
 
 ## Instalação
