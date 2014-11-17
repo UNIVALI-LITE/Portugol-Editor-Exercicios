@@ -8,59 +8,54 @@
         <meta name="mobile-web-app-capable" content="yes">
 
         <!-- build:css styles/vendor.css -->
-        <link rel="stylesheet" href="bower_components/Bootflat/css/bootstrap.min.css">
-        <link rel="stylesheet" href="bower_components/Bootflat/bootflat/css/bootflat.min.css">
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.min.css">
+        <link rel="stylesheet" href="bower_components/sweetalert/lib/sweet-alert.css">
+        <link rel="stylesheet" href="bower_components/ng-tags-input/ng-tags-input.min.css">
+        
         <!-- endbuild -->
 
         <!-- build:css styles/main.css -->
         <link rel="stylesheet" href="styles/main.css">
         <!-- endbuild -->
     </head>
-    <body>
-        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="index.html">Editor de Exercícios</a>
-                </div>
+    <body ng-app="Editor">
 
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse navbar-ex1-collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a href="#about">About</a>
-                        </li>
-                        <li><a href="#services">Services</a>
-                        </li>
-                        <li><a href="#contact">Contact</a>
-                        </li>
-                    </ul>
-                </div>
-                <!-- /.navbar-collapse -->
-            </div>
-            <!-- /.container -->
-        </nav>
+        <div ng-view class="container">
 
-        <div class="container">
+
         </div>
         <!-- /.container -->
 
         <!-- build:js scripts/vendor.js -->
-        <script src="bower_components/Bootflat/js/html5shiv.js"></script>
-        <script src="bower_components/Bootflat/js/jquery-1.10.1.min.js"></script>
-        <script src="bower_components/Bootflat/bootflat/js/icheck.min.js"></script>
-        <script src="bower_components/Bootflat/js/bootstrap.min.js"></script>
-        <script src="bower_components/Bootflat/js/respond.min.js"></script>
         <script src="bower_components/angular/angular.min.js"></script>
-        <script src="/bower_components/angular-route/angular-route.js"></script>
+        <script src="bower_components/angular-route/angular-route.min.js"></script>
+        <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+        <script src="bower_components/angular-resource/angular-resource.min.js"></script>
+        <script src="bower_components/angular-loading-bar/build/loading-bar.min.js"></script>
+        <script src="bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>        
+        <script src="bower_components/ace-builds/src-min-noconflict/ace.js"></script>
+        <script src="bower_components/angular-ui-ace/ui-ace.min.js"></script>
+        <script src="bower_components/ng-tags-input/ng-tags-input.min.js"></script>
+        <script src="bower_components/sweetalert/lib/sweet-alert.min.js"></script>
+        <script src="bower_components/angular-xml/angular-xml.min.js"></script>
+        <script src="bower_components/underscore/underscore-min.js"></script>
         <!-- endbuild -->
-    
+
         <!-- build:js scripts/build.min.js -->
+        <script src="scripts/controllers/IndexController.js"></script>
+        <script src="scripts/controllers/DinamicoController.js"></script>
+        <script src="scripts/controllers/EstaticoController.js"></script>
+        <script src="scripts/controllers/ExercicioController.js"></script>
+        <script src="scripts/controllers/BarraController.js"></script>
+        <script src="scripts/controllers/TreeWalkerController.js"></script>
+        <script src="scripts/controllers/LoginController.js"></script>
         <script src="scripts/main.js"></script>
+        <script src="scripts/directives/BarraDirective.js"></script>
+        <script src="scripts/directives/TreeWalkerDirective.js"></script>
+        <script src="scripts/services/TreeWalkerService.js"></script>
         <!-- endbuild -->
 
 </body>

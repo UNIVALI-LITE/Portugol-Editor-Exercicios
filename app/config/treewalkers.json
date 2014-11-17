@@ -1,0 +1,10 @@
+[
+	{"nome":"ConstantIndex", "manifesto":"manifestos/ConstantIndex.json"},
+	{"nome":"EmptyBlocks", "manifesto":"manifestos/EmptyBlocks.json"},
+	{"nome":"NumberOfConditions", "manifesto":"manifestos/NumberOfConditions.json"},
+    {"nome":"NumberOfInstructions", "manifesto":"manifestos/NumberOfInstructions.json"},
+    {"nome":"ProhibitedInstructions", "manifesto":"manifestos/ProhibitedInstructions.json"},
+    {"nome":"MandatoryArray", "manifesto":"manifestos/MandatoryArray.json"},
+    {"nome":"ReadAfterOperation", "manifesto":"manifestos/ReadAfterOperation.json"},
+    {"nome":"PossibleInfiniteLoop", "manifesto":"manifestos/PossibleInfiniteLoop.json"}
+]

@@ -1,0 +1,6 @@
+{
+	"nome": "ConstantIndex",
+	"autor": "andreih@outlook.com",
+	"descricao" : "Verifica se o índice de um vetor ou matriz dentro de um laço é uma constante ou uma variável que não é alterada no contexto.",
+	"parametros" : []
+}

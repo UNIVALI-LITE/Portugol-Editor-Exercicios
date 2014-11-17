@@ -1,0 +1,69 @@
+<barra estilo="3"></barra>
+
+<div class="row">
+	<div class="col-sm-4">
+		<div class="panel panel-primary">
+		  <div class="panel-heading">Lista de TreeWalkers</div>
+		  <div class="panel-body">
+		    <ul class="list-group">
+			  <li class="list-group-item" ng-repeat="t in treewalkers">
+			  	<a title="{{t.descricao}}" ng-click="addTreeWalker(t)"><span class="glyphicon glyphicon-plus"></span> {{t.nome}}</a>
+			  </li>
+			</ul>
+		  </div>
+		</div>
+	</div>
+	<div class="col-sm-8">
+
+		<ul class="nav nav-tabs" role="tablist">
+		  <li ng-class="{active: solucaoId == null}" ><a ng-click="selecionaSolucao(null)">Exercício</a></li>
+		  <li ng-repeat="s in $root.Exercicio.solucoes" ng-class="{active: solucaoId == $index}"><a ng-click="selecionaSolucao($index)">Solução {{$index + 1}}</a></li>
+		  <li><a ng-click="addSolucao()"><span class="glyphicon glyphicon-plus"></span> Nova Solução</a></li>
+		</ul>
+
+		<!-- Aba Exercício -->
+		<div class="tab-body animate-repeat" ng-repeat="t in $root.Exercicio.treewalkers" ng-show="solucaoId == null">
+			<treewalker tw="t" lista="$root.Exercicio.treewalkers"></treewalker>
+		</div>
+
+		<!-- Aba Solução Modelo 1 -->
+		<div class="tab-body" ng-repeat="s in $root.Exercicio.solucoes" ng-show="solucaoId==$index">
+			<div class="panel panel-default">
+			  	<div class="panel-heading">
+			    	<span>
+			    		Solução {{$index + 1}}
+			    		<button ng-click="removeSolucao($index)" type="button" class="btn btn-danger btn-xs btn-excluir-estatico">
+                        	<span class="glyphicon glyphicon-trash"></span>  Excluir
+                        </button>
+			    	</span>
+			  	</div>
+			  	<div class="panel-body">
+			  		<div class="row">					
+						<div class="form col-xs-12" role="form">
+							<div class="form-group">
+								<input ng-model="s.incorreta" ng-change="trocouSolucaoCorreta(s)" type="checkbox" /> Solução Incorreta
+							</div>
+							<div ng-show="s.incorreta" class="form-group">
+			                	<label for="mensagemErro">Mensagem de Erro:</label>
+			                	<input ng-model="s.mensagemErro" type="text" class="form-control" id="mensagemErro" placeholder="Digite a mensagem"/>
+			               	</div>
+							<div class="form-group">
+								<input ng-model="s.exibeCodigoFonte" type="checkbox" /> Exibir Código-Fonte
+							</div>					   		
+			            </div>
+					</div>
+					<div ng-show="s.exibeCodigoFonte" class="row">
+						<div ng-model="s.codigoFonte" class="codigoFonte col-xs-12" ui-ace="{
+							  useWrapMode : true,
+							  showGutter: true,
+							  mode: 'xml'
+							}" readonly="false"></div>
+					</div>
+				</div>
+			</div>
+
+			<treewalker ng-repeat="t in s.treewalkers" tw="t" lista="s.treewalkers"></treewalker>
+
+		</div>
+	</div>
+</div>

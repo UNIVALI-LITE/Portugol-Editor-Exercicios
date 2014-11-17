@@ -1,0 +1,6 @@
+{
+	"nome": "ReadAfterOperation",
+	"autor": "andreih@outlook.com",
+	"descricao" : "Verifica se uma exmpressão é realizada antes de efetuar uma entrada de dados.",
+	"parametros" : []
+}

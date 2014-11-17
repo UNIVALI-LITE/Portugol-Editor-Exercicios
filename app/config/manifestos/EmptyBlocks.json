@@ -1,0 +1,6 @@
+{
+	"nome": "EmptyBlocks",
+	"autor": "andreih@outlook.com",
+	"descricao" : "Verifica todos os blocos de códigos (laços, condições, etc) que não possuem nenhuma instrução dentro.",
+	"parametros" : []
+}

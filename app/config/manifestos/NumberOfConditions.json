@@ -1,0 +1,12 @@
+{
+	"nome": "NumberOfConditions",
+	"autor": "andreih@outlook.com",
+	"descricao" : "Conta os desvios condicionais (se e caso) a fim de identificar quantos caminhos possíveis existem.",
+	"parametros" :
+	[
+		{
+	      "nome": "Quantidade de Condições",
+	      "tipo": "inteiro"
+	    }
+	]
+}

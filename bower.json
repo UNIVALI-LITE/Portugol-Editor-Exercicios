@@ -2,9 +2,17 @@
   "name": "Portugol-Editor-Exercícios",
   "private": true,
   "dependencies": {
-    "Bootflat": "*",
-    "angular": "~1.2.16",
-    "angular-route": "~1.2.16"
+    "angular": "~1.2.26",
+    "angular-resource": "~1.2.26",
+    "angular-route": "~1.2.26",
+    "angular-animate": "~1.2.26",
+    "angular-loading-bar": "~0.6.0",
+    "angular-ui-ace": "~0.1.1",
+    "bootstrap": "~3.2.0",
+    "sweetalert": "~0.2.0",
+    "ng-tags-input": "~2.1.1",
+    "angular-xml": "~1.0.6",
+    "underscore": "~1.7.0"
   },
   "devDependencies": {}
 }

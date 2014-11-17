@@ -1,0 +1,36 @@
+<barra estilo="1"></barra>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <input ng-model="$root.Exercicio.titulo" type="text" class="form-control" id="titulo" placeholder="Título do exercício"/>
+    </div>
+    <div class="panel-body">
+        <div role="form">
+            <div class="form-group">
+                <textarea ng-model="$root.Exercicio.enunciado" class="form-control" id="enunciado" placeholder="Enunciado do exercício">
+                </textarea>
+            </div>
+
+            <div class="form-group input-group input-group-sm col-xs-12">
+                <tags-input ng-model="$root.Exercicio.tags" 
+                            placeholder="Adicione uma tag" 
+                            replace-spaces-with-dashes="false">
+                </tags-input>
+            </div>
+
+            <div class="form-group col-md-12">
+                <p style="text-align:center">
+                    <a href="#/exercicio/dinamico" class="btn btn-primary btn-lg">
+                        <span class="glyphicon glyphicon-list-alt"></span> 
+                        Correção Dinâmica
+                    </a>
+                    <a href="#/exercicio/estatico" class="btn btn-primary btn-lg">
+                        <span class="glyphicon glyphicon-comment"></span> 
+                        Correção Estática
+                    </a>
+                </p>
+            </div>
+
+        </div>
+    </div>
+</div>

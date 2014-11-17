@@ -1,0 +1,17 @@
+{
+	"nome": "MandatoryArray",
+	"autor": "andreih@outlook.com",
+	"descricao" : "Sinaliza quando, ao percorrer toda a ASA, não visitou nenhuma declaração de vetor ou matriz.",
+	"parametros" :
+	[
+		{
+	      "nome": "Tipo de Estrutura",
+	      "tipo": "inteiro",
+          "opcoes":
+            [
+                {"nome":"Vetor", "valor": "1"},
+                {"nome":"Matriz", "valor": "2"}
+            ]
+	    }        
+	]
+}

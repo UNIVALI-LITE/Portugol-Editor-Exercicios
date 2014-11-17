@@ -12,10 +12,10 @@ gulp.task('html', function () {
     var cssFilter = $.filter('**/*.css');
     var assets    = $.useref.assets();
 
-    return gulp.src('app/*.html')
+    return gulp.src('app/{index.html,views/*.html}')
         .pipe(assets)
         .pipe(jsFilter)
-        .pipe($.uglify())
+        .pipe($.uglify({'mangle':false}))
         .pipe(jsFilter.restore())
         .pipe(cssFilter)
         .pipe($.minifyCss())
@@ -23,6 +23,20 @@ gulp.task('html', function () {
         .pipe(assets.restore())
         .pipe($.useref())
         .pipe(gulp.dest('dist'))
+        .pipe($.size());
+});
+
+// Fonts
+gulp.task('fonts', function () {
+    return gulp.src('app/bower_components/bootstrap/dist/fonts/*.{eot,svg,ttf,woff}') // Único jeito que eu achei de copiar as fontes
+        .pipe(gulp.dest('dist/fonts'))
+        .pipe($.size());
+});
+
+// Treewalkers
+gulp.task('treewalkers', function () {
+    return gulp.src('app/config/**/*.json') // Único jeito que eu achei de copiar as fontes
+        .pipe(gulp.dest('dist/config'))
         .pipe($.size());
 });
 
@@ -44,7 +58,7 @@ gulp.task('clean', function () {
 });
 
 // Build
-gulp.task('build', ['html', 'images']);
+gulp.task('build', ['html', 'fonts', 'treewalkers', 'images']);
 
 // Default task
 gulp.task('default', ['clean'], function () {

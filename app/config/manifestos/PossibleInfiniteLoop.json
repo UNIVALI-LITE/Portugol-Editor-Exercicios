@@ -1,0 +1,6 @@
+{
+	"nome": "PossibleInfiniteLoop",
+	"autor": "andreih@outlook.com",
+	"descricao" : "Verifica se um determinado laço de repetição pode tem chances de ser infinito.",
+	"parametros" : []
+}

@@ -1,0 +1,16 @@
+{
+	"nome": "NumberOfInstructions",
+	"autor": "andreih@outlook.com",
+	"descricao" : "Incrementa um contador toda vez que o nó desejado da ASA é visitado.",
+	"parametros" :
+	[
+		{
+	      "nome": "Quantidade de Instruções",
+	      "tipo": "inteiro"
+	    },
+        {
+	      "nome": "Instrução",
+	      "tipo": "no"
+	    }        
+	]
+}

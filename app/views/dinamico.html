@@ -1,0 +1,113 @@
+<barra estilo="2"></barra>
+
+<div class="row">
+	<div ng-repeat="caso in $root.Exercicio.casos" class="col-sm-6">
+		<div class="panel panel-primary">
+
+		    <div class="panel-heading">
+		    	<span>Caso {{$index + 1}}</span>
+		    	<button ng-click="removeCaso($index)" type="button" class="btn btn-danger btn-xs btn-excluir-dinamico">
+                    <span class="glyphicon glyphicon-trash"></span> Excluir
+                </button>
+		    </div>
+		    <div class="panel-body">
+		    	<div class="row" role="form">
+		    		<div class="form-group col-sm-6 rule-right">
+		                
+		                <h4>Entradas</h4>
+
+		                <div class="form-group">
+		                	<label for="entradaTipo{{$index}}">Tipo</label>
+		                	<select ng-model="caso.formCasoTipoE" class="form-control input-sm" id="entradaTipo{{$index}}">
+		                		<option ng-repeat="t in $root.tipos" value="{{t.tipo}}">{{t.nome}}</option>
+		                	</select>
+		               	</div>  
+
+		                <div class="form-group" ng-class="{'has-error': !caso.formCasoValorEV, 'has-success': caso.formCasoValorEV}">
+		                	<label for="entradaValor{{$index}}">Valor</label>
+		                	<input ng-change="verificaInput('e', caso)" ng-model="caso.formCasoValorE" type="text" class="form-control input-sm" id="entradaValor{{$index}}" placeholder="Digite o valor"/>
+		               	</div>
+
+	                    <button ng-click="addEntrada(caso)" class="btn btn-primary btn-xs" type="button">
+	                        <span class="glyphicon glyphicon-plus"></span> Adicionar
+	                    </button>
+
+	                    <div ng-show="caso.entradas.length > 0" class="form-group">
+		                    <table class="table">
+		                    	<thead>
+		                    		<th>Tipo</th>
+		                    		<th>Valor</th>
+		                    		<th class="btn-excluir-io">Excluir</th>
+		                    	</thead>
+		                    	<tbody>
+		                    		<tr ng-repeat="v in caso.entradas">
+			                    		<td>{{v.tipo}}</td>
+			                    		<td>{{v.valor}}</td>
+			                    		<td class="btn-excluir-io">
+			                                <button ng-click="removeEntrada(caso, $index)" type="button" class="btn btn-danger btn-xs">
+			                                    <span class="glyphicon glyphicon-trash"></span> 
+			                                </button>
+			                            </td>
+			                    	</tr>
+		                    	</tbody>
+		                    </table>
+		                  </div>
+		                
+		            </div>
+
+		            <div class="form-group col-sm-6">
+		                
+		                <h4>Saídas</h4>
+
+		                <div class="form-group">
+		                	<label for="saidaTipo{{$index}}">Tipo</label>
+		                	<select ng-model="caso.formCasoTipoS" class="form-control input-sm" id="saidaTipo{{$index}}">
+		                		<option ng-repeat="t in $root.tipos" value="{{t.tipo}}">{{t.nome}}</option>
+		                	</select>
+		               	</div>    
+
+		                <div class="form-group" ng-class="{'has-error': !caso.formCasoValorSV, 'has-success': caso.formCasoValorSV}">
+		                	<label for="saidaValor{{$index}}">Valor</label>
+		                	<input ng-change="verificaInput('s', caso)" ng-model="caso.formCasoValorS" type="text" class="form-control input-sm" id="saidaValor{{$index}}" placeholder="Digite o valor"/>
+		               	</div>
+
+	                    <button ng-click="addSaida(caso)"class="btn btn-primary btn-xs" type="button">
+	                        <span class="glyphicon glyphicon-plus"></span> Adicionar
+	                    </button>
+
+	                    <div ng-show="caso.saidas.length > 0" class="form-group">
+		                    <table class="table">
+		                    	<thead>
+		                    		<th>Tipo</th>
+		                    		<th>Valor</th>
+		                    		<th class="btn-excluir-io">Excluir</th>
+		                    	</thead>
+		                    	<tbody>
+		                    		<tr ng-repeat="v in caso.saidas">
+			                    		<td>{{v.tipo}}</td>
+			                    		<td>{{v.valor}}</td>
+			                    		<td class="btn-excluir-io">
+			                                <button ng-click="removeSaida(caso, $index)" type="button" class="btn btn-danger btn-xs">
+			                                    <span class="glyphicon glyphicon-trash"></span> 
+			                                </button>
+			                            </td>
+			                    	</tr>
+		                    	</tbody>
+		                    </table>
+		                </div>		                
+		            </div>
+		    	</div>
+		    </div>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-sm-12">
+		<button ng-click="addCaso()" type="button" class="btn btn-success">
+		    <span class="glyphicon glyphicon-plus"></span> 
+		    Novo Caso
+		</button>
+	</div>
+</div>
+

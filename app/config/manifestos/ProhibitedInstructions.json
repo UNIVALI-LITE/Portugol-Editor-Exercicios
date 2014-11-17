@@ -1,0 +1,12 @@
+{
+	"nome": "ProhibitedInstructions",
+	"autor": "andreih@outlook.com",
+	"descricao" : "Proíbe que desterminadas instruções sejam utilizadas no exercício",
+	"parametros" :
+	[
+        {
+	      "nome": "Instruções Proibidas",
+	      "tipo": "no[]"
+	    }        
+	]
+}

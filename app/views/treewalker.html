@@ -1,0 +1,69 @@
+<div class="panel panel-primary">
+  	<div class="panel-heading">
+	    <span title="{{treewalker.manifesto.descricao}}">{{treewalker.manifesto.nome}}</span>
+	    <button ng-click="removeTreeWalkerContexto()" type="button" class="btn btn-danger btn-xs btn-excluir-estatico">
+	        <span class="glyphicon glyphicon-trash"></span> Excluir
+	    </button>
+  	</div>
+  	<div class="panel-body">
+	    <div class="form" role="form">
+	   		<div class="form-group">
+	        	<label for="mensagem">Mensagem (opcional):</label>
+	        	<input ng-model="treewalker.mensagemAlternativa" type="text" class="form-control" id="mensagem" placeholder="Digite a mensagem"/>
+	       	</div>
+            <div ng-repeat="p in treewalker.parametros">
+                <div ng-if="p.tipo != 'lista'" class="form-group">
+                    <label>{{mpar[$index].nome}} ({{p.tipo}})</label>
+                    
+                    <!--Sem opções, apenas texto -->
+                    <input ng-if="p.tipo != 'no' && mpar[$index].opcoes === undefined"
+                           ng-model="p.valor"
+                           type="text"
+                           class="form-control"
+                           ng-pattern="getRegex(p)"/>
+                    
+                    <!--Com opções, mas não é nó -->
+                    <select ng-if="p.tipo != 'no' && mpar[$index].opcoes"
+                            ng-model="p.valor"
+                            ng-options="opcao.valor as opcao.nome for opcao in mpar[$index].opcoes"
+                            class="form-control" >
+                    </select>
+                    
+                    <!--Se for nó -->
+                    <select ng-if="p.tipo == 'no'"
+                            ng-model="p.valor"
+                            ng-options="n for n in nos"
+                            class="form-control" >
+                    </select>
+                    
+                </div>
+                <div ng-if="p.tipo == 'lista'" class="form-group">
+                    <label>
+                        {{mpar[$index].nome}}
+                        ({{mpar[$index].tipo|getTipoLista}})
+                    </label>
+                    
+                    <!-- Para listas do tipo "nó" -->
+                    <tags-input ng-if="(mpar[$index].tipo|getTipoLista) == 'no'"
+                                ng-model="p.valor" 
+                                placeholder="Adicione um Nó da Árvore" 
+                                replace-spaces-with-dashes="false"
+                                add-from-autocomplete-only="true">
+                    <auto-complete ng-if="(mpar[$index].tipo|getTipoLista) == 'no'" source="loadNosAsa($query)" 
+                                min-length="0" 
+                                debounce-delay="0"
+                                max-results-to-show="60"></auto-complete>
+                    </tags-input>
+                    
+                    <!-- Para listas diferentes do tipo "nó" (inteiro, cadeia, etc) -->                        
+                    <tags-input ng-if="(mpar[$index].tipo|getTipoLista) != 'no'"
+                                ng-model="p.valor" 
+                                placeholder="Adicione um {{mpar[$index].tipo|getTipoLista}}" 
+                                replace-spaces-with-dashes="false"
+                                allowed-tags-pattern="{{tiposRegex[(mpar[$index].tipo|getTipoLista)]}}">                    
+                    </tags-input>
+                </div>
+            </div>
+	    </div>
+  	</div>
+</div>
